@@ -75,24 +75,6 @@ body {
 .subnav:hover .subnav-content {
   display: block;
 }
-<<<<<<< HEAD
-
-</style>
-
-
-<div class="navbar">
-    <a href="/#home">Biblioteka</a>
-    <a href="/index">Zbior książek</a>
-    {% if user.is_authenticated %}
-
-    <a href="/logout"">Wyloguj {{ login }}</a>
-    {%else%}
-    <a href="/login"">Logowanie</a>
-
-    <a href="/register">Rejestracja</a>
-
-    {%endif%}
-=======
 </style>
 
 
@@ -100,15 +82,22 @@ body {
 <div class="navbar">
   <a href="/#home">Biblioteka</a>
   <a href="/index">Zbior książek</a>
-  <a href="/login">Logowanie</a>
+
+  {% if user.is_authenticated %}
+
   <a href="/logout">Wyloguj {{ login }}</a>
+  {%else%}
+  <a href="/login">Logowanie</a>
+
   <a href="/register">Rejestracja</a>
+
+  {%endif%}
     <a href="/user_view"> Panel użytkownika </a>
->>>>>>> 629dcdea52361b94bcb1f3203b893bd099d51585
 </div>
 
 {% block content %}
 {% endblock %}
+
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}

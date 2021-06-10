@@ -9,15 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-<<<<<<< HEAD
-
-PASSWORD_HASHERS = [
-     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-]
-
-=======
 import os
->>>>>>> 629dcdea52361b94bcb1f3203b893bd099d51585
 from pathlib import Path
 
 
@@ -130,12 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
-=======
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "static"),
    ]
->>>>>>> 629dcdea52361b94bcb1f3203b893bd099d51585
 # LOGIN_REDIRECT_URL = '/index/'
 LOGIN_URL = '/login'
 
@@ -143,3 +132,13 @@ LOGIN_URL = '/login'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    
+    
+]
+
