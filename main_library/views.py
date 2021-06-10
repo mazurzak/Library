@@ -9,10 +9,6 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
-
-=======
->>>>>>> 629dcdea52361b94bcb1f3203b893bd099d51585
 
 
 # Create your views here.
@@ -51,9 +47,7 @@ def login_request(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, "świetnie. Logownie powiodło się ;).")
                 return redirect('/')
-            messages.error(request, "Hmmm... coś poszło nie tak.")
     form = AuthenticationForm()
     return render(request=request,
                   template_name="main_library/login.html",
@@ -75,21 +69,10 @@ def register_request(request):
 
 def logout_request(request):
     logout(request)
-<<<<<<< HEAD
-    messages.success(request, "wylogowałeś się.")
-=======
->>>>>>> 629dcdea52361b94bcb1f3203b893bd099d51585
     return redirect('/')
 
 
 def rent(request, id):
-<<<<<<< HEAD
-    user_id = request.user.id
-    username = request.user.username
-
-    return render(request, 'main_library/rent.html', {'user_id': user_id,
-                                                      'username': username})
-=======
     user_id = User.objects.get(pk=request.user.id)
     username = request.user.username
 
@@ -139,4 +122,3 @@ def return_book(request, id):
         return redirect("user_view") 
     return redirect("user_view") 
 
->>>>>>> 629dcdea52361b94bcb1f3203b893bd099d51585
